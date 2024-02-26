@@ -3,9 +3,13 @@ package com.example.postereditor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -27,7 +31,6 @@ class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item item = items.get(position);
-        // Bind data to the views here
     }
 
     @Override
@@ -36,11 +39,13 @@ class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.ViewH
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView item_image ;
         // Define your item views here
 
         ViewHolder(View itemView) {
             super(itemView);
-            // Initialize your item views here
+            item_image = itemView.findViewById(R.id.item_image);
         }
     }
 }

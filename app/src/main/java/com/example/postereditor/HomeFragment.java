@@ -1,6 +1,11 @@
 package com.example.postereditor;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +20,16 @@ import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements CategoryClickListener {
     ImageCarousel carousel;
     List<CarouselItem> carouselItems = new ArrayList<>();
-     RecyclerView outerRecyclerView;
-     CategoryAdapter categoryAdapter;
+    RecyclerView outerRecyclerView;
+    CategoryAdapter categoryAdapter;
+
     public HomeFragment() {
         // Required empty public constructor
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,15 +46,17 @@ public class HomeFragment extends Fragment {
         carousel.addData(carouselItems);
 
         outerRecyclerView = view.findViewById(R.id.categoryList);
+
         outerRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Prepare your data
         List<Category> categories = prepareCategoriesData();
 
-        categoryAdapter = new CategoryAdapter(categories);
-        outerRecyclerView.setAdapter(categoryAdapter);
+        CategoryAdapter adapter = new CategoryAdapter(categories, this, getContext());
+        outerRecyclerView.setAdapter(adapter);
         return view;
     }
+
     private List<Category> prepareCategoriesData() {
         List<Category> categories = new ArrayList<>();
 
@@ -70,19 +78,19 @@ public class HomeFragment extends Fragment {
         Category category2 = new Category("Category 2", category2Items);
         categories.add(category2);
 
-        List<Item> category4Items = new ArrayList<>();
-        category4Items.add(new Item("Item 3", "Description 3"));
-        category4Items.add(new Item("Item 4", "Description 4"));
-        Category category4 = new Category("Category 2", category4Items);
-
-        categories.add(category4);
+        // Category 3
         List<Item> category3Items = new ArrayList<>();
         category3Items.add(new Item("Item 3", "Description 3"));
         category3Items.add(new Item("Item 4", "Description 4"));
-        Category category3 = new Category("Category 2", category3Items);
+        Category category3 = new Category("Category 3", category3Items);
         categories.add(category3);
 
-        // You can add more categories here
+        // Category 4
+        List<Item> category4Items = new ArrayList<>();
+        category4Items.add(new Item("Item 3", "Description 3"));
+        category4Items.add(new Item("Item 4", "Description 4"));
+        Category category4 = new Category("Category 4", category4Items);
+        categories.add(category4);
 
         return categories;
     }
@@ -93,6 +101,22 @@ public class HomeFragment extends Fragment {
         imageUrls.add("https://img.freepik.com/free-vector/hand-drawn-flat-halloween-background_23-2149062624.jpg?w=1060&t=st=1708668968~exp=1708669568~hmac=8eb1e9696bcd10e030a0cfd113e2d0bcd53d5590adfcd0b2a59b49fc0819dcce");
         imageUrls.add("https://img.freepik.com/free-photo/card-with-red-ribbons-bows_1232-1776.jpg?w=1380&t=st=1708669063~exp=1708669663~hmac=2397fc5c34c3b19e360f258e39cbfd0cca23b4a4eddbcd4692d671a98af9eb01");
         return imageUrls;
+    }
+    @Override
+    public void onSeeAllClick(Category category) {
+        // Create a new instance of your fragment and pass the category data
+        categoryItemFragment fragment = new categoryItemFragment();
+        // Create a bundle and set the category data and items list
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("category", category);
+        bundle.putParcelableArrayList("items", new ArrayList<>(category.items));
+        fragment.setArguments(bundle);
+        Log.d(TAG, "onSeeAllClick: dataaaa"+bundle);
+        // Use FragmentTransaction to replace the current fragment with the new one
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
 
