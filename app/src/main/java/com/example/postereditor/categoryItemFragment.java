@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,9 +32,8 @@ public class categoryItemFragment extends Fragment {
         List<Item> items = getArguments().getParcelableArrayList("items");
         // Assuming you have your RecyclerView setup here
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
-
-        // Set a layout manager to the RecyclerView
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
         // Set up your RecyclerView with the items of the clicked category
         recyclerView.setAdapter(new CategoryItemAdapter(items));
 

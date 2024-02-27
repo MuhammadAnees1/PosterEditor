@@ -18,6 +18,7 @@ import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements CategoryClickListener {
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment implements CategoryClickListener {
 
     private List<Category> prepareCategoriesData() {
         List<Category> categories = new ArrayList<>();
-
+        
         // Category 1
         List<Item> category1Items = new ArrayList<>();
         category1Items.add(new Item("Item 1", "Description 1"));
@@ -75,20 +76,31 @@ public class HomeFragment extends Fragment implements CategoryClickListener {
         List<Item> category2Items = new ArrayList<>();
         category2Items.add(new Item("Item 3", "Description 3"));
         category2Items.add(new Item("Item 4", "Description 4"));
+        category2Items.add(new Item("Item 5", "Description 5"));
+        category2Items.add(new Item("Item 6", "Description 6"));
+        category2Items.add(new Item("Item 7", "Description 7"));
         Category category2 = new Category("Category 2", category2Items);
+
         categories.add(category2);
 
         // Category 3
         List<Item> category3Items = new ArrayList<>();
         category3Items.add(new Item("Item 3", "Description 3"));
         category3Items.add(new Item("Item 4", "Description 4"));
+        category3Items.add(new Item("Item 5", "Description 5"));
+        category3Items.add(new Item("Item 6", "Description 6"));
+        category3Items.add(new Item("Item 7", "Description 7"));
         Category category3 = new Category("Category 3", category3Items);
         categories.add(category3);
 
         // Category 4
         List<Item> category4Items = new ArrayList<>();
-        category4Items.add(new Item("Item 3", "Description 3"));
-        category4Items.add(new Item("Item 4", "Description 4"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
+        category4Items.add(new Item("https://img.freepik.com/free-vector/gift-coupon-with-ribbon-offer_24877-55663.jpg?t=st=1708668895~exp=1708669495~hmac=de3ab2b61827884c92054f11341533167899708ccd7f5b8ae7a37c84215b2661", "Description 7"));
         Category category4 = new Category("Category 4", category4Items);
         categories.add(category4);
 

@@ -12,7 +12,6 @@ import java.util.List;
 class Category implements Parcelable {
     String title;
     List<Item> items;
-
     Category(String title, List<Item> items) {
         this.title = title;
         this.items = items;

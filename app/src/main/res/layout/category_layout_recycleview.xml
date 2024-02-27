@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#34AE91"
         android:layout_marginBottom="8dp" />
 
     <TextView
@@ -23,6 +24,7 @@
         android:layout_marginBottom="8dp"
         android:drawableEnd="@drawable/baseline_arrow_right_alt_24"
         android:text="See All"
+        android:textColor="#34AE91"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="RtlHardcoded" />

@@ -49,7 +49,6 @@ class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
             public void onClick(View v) {
                 if (categoryClickListener != null) {
                     categoryClickListener.onSeeAllClick(category);
-
                 }
             }
         });
@@ -63,7 +62,6 @@ class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView, seeAll_category;
         RecyclerView innerRecyclerView;
-
         ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.category_title);

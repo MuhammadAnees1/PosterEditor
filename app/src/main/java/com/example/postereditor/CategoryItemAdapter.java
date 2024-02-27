@@ -5,11 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -31,7 +30,9 @@ class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item item = items.get(position);
-    }
+        Glide.with(holder.itemView.getContext())
+                .load(item.getImageUrl())
+                .into(holder.item_image);    }
 
     @Override
     public int getItemCount() {
@@ -39,13 +40,13 @@ class CategoryItemAdapter extends RecyclerView.Adapter<CategoryItemAdapter.ViewH
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView item_image ;
-        // Define your item views here
+        ImageView item_image;
+        // Define any additional item views here
 
         ViewHolder(View itemView) {
             super(itemView);
             item_image = itemView.findViewById(R.id.item_image);
+            // Initialize any additional item views here
         }
     }
 }
