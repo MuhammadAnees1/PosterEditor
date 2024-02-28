@@ -26,6 +26,7 @@ public class HomeFragment extends Fragment implements CategoryClickListener {
     List<CarouselItem> carouselItems = new ArrayList<>();
     RecyclerView outerRecyclerView;
     CategoryAdapter categoryAdapter;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -56,6 +57,7 @@ public class HomeFragment extends Fragment implements CategoryClickListener {
         outerRecyclerView.setAdapter(adapter);
         return view;
     }
+
     private List<Category> prepareCategoriesData() {
         List<Category> categories = new ArrayList<>();
         // Category 1

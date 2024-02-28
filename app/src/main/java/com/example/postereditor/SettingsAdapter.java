@@ -1,4 +1,5 @@
 package com.example.postereditor;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -8,20 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-
 import java.util.List;
 
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.SettingsViewHolder> {
     private static List<SettingItem> settingItems;
-
     public SettingsAdapter(List<SettingItem> settingItems) {
         SettingsAdapter.settingItems = settingItems;
     }
-
     @NonNull
     @Override
     public SettingsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,14 +37,12 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
         ImageView iconImageView;
         TextView titleTextView;
         TextView descriptionTextView;
-
         public SettingsViewHolder(@NonNull View itemView) {
             super(itemView);
             // Initialize your views here
             iconImageView = itemView.findViewById(R.id.button_image);
             titleTextView = itemView.findViewById(R.id.button_name);
             descriptionTextView = itemView.findViewById(R.id.button_text);
-
             // Set the click listener for the entire item view
             itemView.setOnClickListener(this);
         }
@@ -66,8 +60,6 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
             if (position != RecyclerView.NO_POSITION) {
                 SettingItem clickedItem = settingItems.get(position);
                 Context context = v.getContext();
-
-
                 if (clickedItem.getTitle().equals("Share app")) {
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("text/plain");
@@ -97,14 +89,12 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Settin
                     emailIntent.putExtra(Intent.EXTRA_SUBJECT, "App Feedback");
                     context.startActivity(Intent.createChooser(emailIntent, "Send Email"));
                 }
-
                 if (clickedItem.getTitle().equals("Privacy Policy")) {
                     // Open the privacy policy link
                     String privacyPolicyUrl = "https://legal.softwareflare.com/app-privacy.html";
                     Intent privacyPolicyIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(privacyPolicyUrl));
                     context.startActivity(privacyPolicyIntent);
                 }
-
             }
         }
     }

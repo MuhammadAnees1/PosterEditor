@@ -87,51 +87,7 @@
             app:drawableTopCompat="@drawable/baseline_lightbulb_24" />
 
     </androidx.appcompat.widget.Toolbar>
-    <FrameLayout
-        android:id="@+id/parentLayout"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_toolbar">
 
-        <com.jgabrielfreitas.core.BlurImageView
-            android:id="@+id/previewImageView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/white_bg"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <com.jgabrielfreitas.core.BlurImageView
-            android:id="@+id/filterImageView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/white_bg"
-            android:scaleType="fitXY"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <View
-            android:id="@+id/previewImageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:adjustViewBounds="true"
-            android:background="#4D000000"
-            android:scaleType="fitXY"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
-    </FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/LayerRecycleView"
         android:layout_width="wrap_content"
